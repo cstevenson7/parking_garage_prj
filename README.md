@@ -13,7 +13,7 @@ July 24, 2020
 
 July 26, 2020
 
-11:30am (EST) - Cindy add to pre-pay funtionality, revised loation of input stmt in go_to_garage, add Quit action option
+11:30am (EST) - Cindy add to pre-pay funtionality, revised location of input stmt in go_to_garage, add Quit action option
 
 12:30pm (EST) - Josh made final edits to remove unnecessary bits, did trial and error testing
 
