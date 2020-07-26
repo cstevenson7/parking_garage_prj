@@ -14,9 +14,9 @@ class ParkingGarage():
     
     def payParking(self, ticket_num, action = ""):       
         if self.currentTicket.get(ticket_num) == True:
-            print("Thank you, you've already paid! You have 15 minutes to leave")
+            print("\nThank you, you've already paid! You have 15 minutes to leave")
         else:
-            amount = input("The parking rate is $15.00. How much are you paying ?  ")
+            amount = input("\nThe parking rate is $15.00. How much are you paying ?  ")
             while True:
                 if amount == "$15.00" or amount == "$15" or amount == "15" or amount == "15.00" :
                     if action == "prepay":
@@ -29,18 +29,18 @@ class ParkingGarage():
                         break
                 else: 
                     print("\nPlease pay the amount of $15.00")
-                    amount = input("The parking rate is $15.00. How much are you paying ?  ")
+                    amount = input("\nThe parking rate is $15.00. How much are you paying ?  ")
   
 
     def takeTicket(self):
         if self.parkingSpaces == []:
-            print("Sorry, we don't have space left.")
+            print("\nSorry, we don't have space left.")
         else:
             print("\nHere is your ticket!")
             key_ind = self.tickets.pop()
             self.parkingSpaces.pop()
             self.currentTicket[key_ind] = False
-            print(f"Your ticket number is {key_ind}. Don't forget it!\n")
+            print(f"\nYour ticket number is {key_ind}. Don't forget it!\n")
 
     
     def leaveGarage(self):
@@ -56,7 +56,7 @@ class ParkingGarage():
         if len(self.parkingSpaces) > 0:
             print(f"\nCurrently, we have space for {str(len(self.parkingSpaces))} more cars.\n")
         else:
-            print("It looks like we're full!")
+            print("\nIt looks like we're full!")
 
 
     def ticketCheck(self,ticket_num):
@@ -65,7 +65,7 @@ class ParkingGarage():
                 break 
             else:
                 print("\nWe can't find that ticket number")
-                ticket_num = input("Please enter your ticket number: ")
+                ticket_num = input("\nPlease enter your ticket number: ")
 
 
 
@@ -74,38 +74,30 @@ new_york_garage = ParkingGarage()
 def go__to_garage():
 #    try:
     print("Welcome to the New York Garage!\n")
-    #action = input("What would you like to do?\n Park / See Space / Pre-Pay / Leave: ")
     while True:
-        action = input("What would you like to do?\n Park / See Space / Pre-Pay / Leave / Quit: ")
+        action = input("\nWhat would you like to do?\n Park / See Space / Pre-Pay / Leave / Quit: ")
         if action.lower() == "park":
             new_york_garage.takeTicket()
-            #action = input("What would you like to do?\n Park / See Space / Pre-Pay / Leave: ")
         elif action.lower() == "see space" or action.lower() == "see" or action.lower() == "space":
             new_york_garage.seeGarage()
-            #action = input("What would you like to do?\n Park / See Space / Pre-Pay / Leave: ")
         elif action.lower() == "pay" or action.lower() == "pre-pay" or action.lower() == "prepay" or action.lower() == "pre pay":
             if new_york_garage.currentTicket == {}:
                 print("\nSorry, you must park first.")               
-                #action = input("What would you like to do?\n Park / See Space / Pre-Pay / Leave: ")
             else:
                 ticket_num = input("\nPlease enter your ticket number: ")
                 new_york_garage.ticketCheck(ticket_num)
                 action= "prepay"
                 new_york_garage.payParking(ticket_num, action)               
-                #action = input("What would you like to do?\n Park / See Space / Pre-Pay / Leave: ")
         elif action.lower() == "leave":             
             if new_york_garage.currentTicket == {}:
                 print("\nSorry, you must park first.\n")
-                #action = input("What would you like to do?\n Park / See Space / Pre-Pay / Leave: ")
             else:
                 new_york_garage.leaveGarage()
-                #break
         elif action.lower() == "quit":
             print("\nSee you next time.\n")
             break 
         else:
             print("\nSorry, try again!")            
-            #action = input("What would you like to do?\n Park / See Space / Pre-Pay / Leave: ")
 #    except:
 #       print("\nSorry, we seem to have run into an error. Please visit another time!")
 
